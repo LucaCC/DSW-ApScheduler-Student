@@ -17,7 +17,8 @@ def welcome():
  sched.add_job(job, 'cron', month='4-5', day_of_week='mon-fri', hour='8-12', end_date='2021-05-22')
  scheduler.start()
  return render_template('home.html')
-def job:
+
+def job():
  return print('Hey, get back to work!')
   
 if __name__=="__main__":
