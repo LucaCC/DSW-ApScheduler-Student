@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 def welcome():
  scheduler = BackgroundScheduler({'apscheduler.timezone':'America/Los_Angeles'})
- scheduler.add_job(job,'interval', hours=3)
+ sched.add_job(job, 'cron', month='4-5', day_of_week='mon-fri', hour='0-3', end_date='2021-05-22')
  scheduler.start()
  return render_template('home.html')
 def job:
