@@ -13,7 +13,12 @@ app = Flask(__name__)
  
 @app.route('/')
 def welcome():
-    return render_template('home.html')
+ scheduler = BackgroundScheduler({'apscheduler.timezone':'America/Los_Angeles'})
+ scheduler.add_job(job,'interval', hours=3)
+ scheduler.start()
+ return render_template('home.html')
+def job:
+ return print('Hey, get back to work!')
   
 if __name__=="__main__":
     app.run(debug=False)
